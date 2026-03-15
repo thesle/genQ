@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=genQ
+Comment=Generate customisable QR codes
+Exec=genQ
+Icon=com.genq.GenQ
+Terminal=false
+Type=Application
+Categories=Utility;Graphics;
+Keywords=QR;QRCode;barcode;generator;

@@ -1,0 +1,29 @@
+app-id: com.genq.GenQ
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+command: genQ
+
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+
+modules:
+  - name: genQ
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 genQ-linux-amd64 /app/bin/genQ
+      - install -Dm644 com.genq.GenQ.desktop /app/share/applications/com.genq.GenQ.desktop
+      - install -Dm644 com.genq.GenQ.svg /app/share/icons/hicolor/scalable/apps/com.genq.GenQ.svg
+      - install -Dm644 com.genq.GenQ.metainfo.xml /app/share/metainfo/com.genq.GenQ.metainfo.xml
+    sources:
+      - type: file
+        path: ../build/genQ-linux-amd64
+      - type: file
+        path: com.genq.GenQ.desktop
+      - type: file
+        path: com.genq.GenQ.svg
+      - type: file
+        path: com.genq.GenQ.metainfo.xml

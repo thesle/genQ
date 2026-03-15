@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.genq.GenQ</id>
+  <name>genQ</name>
+  <summary>Generate customisable QR codes</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>
+      genQ is a cross-platform QR code generator that lets you create QR codes
+      with customisable dot styles (square or circular), foreground and background
+      colours, and output sizes for screen or print.
+    </p>
+  </description>
+  <launchable type="desktop-id">com.genq.GenQ.desktop</launchable>
+  <url type="homepage">https://github.com/genQ</url>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="1.0.0" date="2026-03-15">
+      <description>
+        <p>Initial release.</p>
+      </description>
+    </release>
+  </releases>
+</component>
