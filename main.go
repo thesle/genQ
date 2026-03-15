@@ -10,7 +10,6 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/layout"
-	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 
 	"genQ/qr"
@@ -21,7 +20,7 @@ import (
 
 func main() {
 	a := app.NewWithID("com.genq.GenQ")
-	a.Settings().SetTheme(theme.DarkTheme())
+	a.Settings().SetTheme(ui.DarkTheme())
 	w := a.NewWindow("genQ — QR Code Generator")
 	w.Resize(fyne.NewSize(800, 600))
 
@@ -53,14 +52,14 @@ func main() {
 
 	// Dark/light mode toggle
 	isDark := true
-	themeBtn := widget.NewButtonWithIcon("Light Mode", theme.ColorPaletteIcon(), nil)
+	themeBtn := widget.NewButton("Light Mode", nil)
 	themeBtn.OnTapped = func() {
 		if isDark {
-			a.Settings().SetTheme(theme.LightTheme())
+			a.Settings().SetTheme(ui.LightTheme())
 			themeBtn.SetText("Dark Mode")
 			isDark = false
 		} else {
-			a.Settings().SetTheme(theme.DarkTheme())
+			a.Settings().SetTheme(ui.DarkTheme())
 			themeBtn.SetText("Light Mode")
 			isDark = true
 		}

@@ -1,22 +1,25 @@
 package ui
 
 import (
+	"image/color"
+
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/theme"
 )
 
-type ThemeMode int
+type forcedVariant struct {
+	fyne.Theme
+	variant fyne.ThemeVariant
+}
 
-const (
-	ThemeLight ThemeMode = iota
-	ThemeDark
-)
+func (f *forcedVariant) Color(name fyne.ThemeColorName, _ fyne.ThemeVariant) color.Color {
+	return f.Theme.Color(name, f.variant)
+}
 
-func ApplyTheme(app fyne.App, mode ThemeMode) {
-	switch mode {
-	case ThemeLight:
-		app.Settings().SetTheme(theme.LightTheme())
-	case ThemeDark:
-		app.Settings().SetTheme(theme.DarkTheme())
-	}
+func DarkTheme() fyne.Theme {
+	return &forcedVariant{Theme: theme.DefaultTheme(), variant: theme.VariantDark}
+}
+
+func LightTheme() fyne.Theme {
+	return &forcedVariant{Theme: theme.DefaultTheme(), variant: theme.VariantLight}
 }
